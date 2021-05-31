@@ -93,65 +93,34 @@ int comparator(const void *p, const void *q)
     return -1;
 }
 
-int checkMax(){
-    int k =0;
-    for(int i=0; i< N; ++i){
-        for(int j=0; j<N; ++j){
-            if(A[i][j] > k){
-                k = A[i][j];
-            }
-        }
-    }
-return k;
-}
-
-int checkRC(int r, int c){
-    int i =0;
-    while(node[i].weight != 0){
-        if(node[i].c == r && node[i].r ==c) return 0;
-        ++i;
-    }
-    return 1;
-}
-
 int sortmore(){
     int hold  = 1;
     int nodeI = 0;
-    int max = checkMax();
-    while(hold <= max){
-        for(int r = 0; r < N; ++r){
-            for(int c = 0; c < N; ++c){
-                if(A[r][c] == hold){
-                    if(checkRC(r,c) != 0){
-                        node[nodeI].r = r;
-                        node[nodeI].c = c;
-                        node[nodeI].weight = A[r][c];
-                        ++nodeI;
-                    }
-                }
+    for(int r = 0; r < N; ++r){
+        for(int c = 0; c < N; ++c){
+            if(A[r][c] == 1){
+                node[nodeI].r = r;
+                node[nodeI].c = c;
+                node[nodeI].weight = A[r][c];
+                ++nodeI;
             }
         }
-    ++hold;
     }
-}
 
-
-void printSort(){
-    int i = 0;
-    while(node[i].weight != 0){
-        printf("Sort: %d-Row || %d-Col || %d-weight\n", node[i].r, node[i].c, node[i].weight);
-        ++i;
-    }
 }
 
 int main()
 {
   input_graph() ;// N, A{}{}  
   //printf("A[1][2]: %d\n", A[1][0]);
-  print_graph() ;
-
+  
+    print_graph() ;
     sortmore();
-    printSort();
+    //qsort((void*)A, sizeof(A[0])/sizeof(A[0][0]), sizeof(A[0][0]), comparator);
 
+
+
+
+  print_graph() ;
 }
 
