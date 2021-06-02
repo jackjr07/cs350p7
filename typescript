@@ -1,0 +1,75 @@
+Script started on 2021-06-01 18:15:14-07:00 [TERM="screen" TTY="/dev/pts/1" COLUMNS="122" LINES="35"]
+jack@jack-ubuntu-machine:~/cs350/cs350p7$ gcc graph_input_template.c -lm
+jack@jack-ubuntu-machine:~/cs350/cs350p7$ .a/[K[K/a.out < graph_input_template.c [K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K01[K2.input 
+
+9
+
+     A   B   C   D   E   F   G   H   I
+A    -   2   -   -   -   9   5   -   - 
+B    2   -   4   -   -   -   6   -   - 
+C    -   4   -   2   -   -   -   5   - 
+D    -   -   2   -   1   -   -   1   - 
+E    -   -   -   1   -   6   -   -   3 
+F    9   -   -   -   6   -   -   -   1 
+G    5   6   -   -   -   -   -   5   2 
+H    -   -   5   1   -   -   5   -   4 
+I    -   -   -   -   3   1   2   4   - 
+
+Sort: 3-Row || 4-Col || 1-weight
+Sort: 3-Row || 7-Col || 1-weight
+Sort: 5-Row || 8-Col || 1-weight
+Sort: 0-Row || 1-Col || 2-weight
+Sort: 2-Row || 3-Col || 2-weight
+Sort: 6-Row || 8-Col || 2-weight
+Sort: 4-Row || 8-Col || 3-weight
+Sort: 1-Row || 2-Col || 4-weight
+Sort: 7-Row || 8-Col || 4-weight
+Sort: 0-Row || 6-Col || 5-weight
+Sort: 2-Row || 7-Col || 5-weight
+Sort: 6-Row || 7-Col || 5-weight
+Sort: 1-Row || 6-Col || 6-weight
+Sort: 4-Row || 5-Col || 6-weight
+Sort: 0-Row || 5-Col || 9-weight
+The minimal spanning tree
+Node: 3 - 4
+Node: 3 - 7
+Node: 5 - 8
+Node: 0 - 1
+Node: 6 - 8
+Node: 4 - 8
+Node: 1 - 2
+Node: 0 - 6
+Result: 19
+jack@jack-ubuntu-machine:~/cs350/cs350p7$ ./a.out < graph02.input [1P[1@8
+
+6
+
+     A   B   C   D   E   F
+A    -   3   -   -   6   5 
+B    3   -   1   -   -   4 
+C    -   1   -   6   -   4 
+D    -   -   6   -   8   5 
+E    6   -   -   8   -   2 
+F    5   4   4   5   2   - 
+
+Sort: 1-Row || 2-Col || 1-weight
+Sort: 4-Row || 5-Col || 2-weight
+Sort: 0-Row || 1-Col || 3-weight
+Sort: 1-Row || 5-Col || 4-weight
+Sort: 2-Row || 5-Col || 4-weight
+Sort: 0-Row || 5-Col || 5-weight
+Sort: 3-Row || 5-Col || 5-weight
+Sort: 0-Row || 4-Col || 6-weight
+Sort: 2-Row || 3-Col || 6-weight
+Sort: 3-Row || 4-Col || 8-weight
+The minimal spanning tree
+Node: 1 - 2
+Node: 4 - 5
+Node: 1 - 5
+Node: 2 - 3
+Node: 0 - 0
+Result: 13
+jack@jack-ubuntu-machine:~/cs350/cs350p7$ exit
+exit
+
+Script done on 2021-06-01 18:15:47-07:00 [COMMAND_EXIT_CODE="0"]

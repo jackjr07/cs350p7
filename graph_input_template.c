@@ -15,6 +15,9 @@ struct node{
     int r, c, weight;
 } node[100];
 
+struct table{
+    int r, c, weight;
+} table[100];
 
 
 int input_graph()
@@ -123,14 +126,75 @@ void printSort(){
     }
 }
 
+int cycle(struct table curr, int FF){
+    //check parent
+    int hold = 0;
+    int hold2 = 0;
+    for(int i =0; i< N; ++i){
+        if(curr.c == table[i].r || curr.c == table[i].c){
+            if(curr.r != table[i].r){
+                ++hold;
+                if(hold == FF){
+                    return 2;
+                }
+            }if(curr.c != table[i].c){
+                ++hold;
+                if(hold == FF){
+                    return 2;
+                }
+            }
+        }
+    }
+}
+
+void printTable(){
+    int result = 0;
+    printf("The minimal spanning tree\n");
+    for(int i =0; i < N-1; ++i){
+        printf("Node: %d - %d\n", table[i].r, table[i].c);
+        result += table[i].weight;
+    }
+    printf("Result: %d\n", result);
+}
+/*
+    D E
+    D H
+    I F
+    A B
+    D C
+    I G
+    I E
+    B C // Not C
+    I H // make C
+*/
+int chooseSort(){
+    int result = 0;
+    int i = 0;
+    int j = 0;
+    int FF = sqrt(N); //Pattern that found while doing this program. if(the number of HIT is greater than square root of N, that is repeat as a cycle
+    //if start = N-1 ->stop
+    while(j<N-1){
+        table[j].r = node[i].r;
+        table[j].c = node[i].c;
+        table[j].weight = node[i].weight;
+        int test = cycle(table[j], FF);
+        if(test == 2){
+            --j;
+        }
+        //printf("%d - %d!!\n", table[j].r, table[j].c);
+        ++i; ++j;
+    };
+    printTable();
+}
+
 int main()
 {
   input_graph() ;// N, A{}{}  
-  //printf("A[1][2]: %d\n", A[1][0]);
   print_graph() ;
 
     sortmore();
     printSort();
+    chooseSort();
 
 }
 
